@@ -1,0 +1,18 @@
+{
+  "CONTRACT_ADDRESS": "0x05215b9b502013d96d941a9f6539b45ed186ab32",
+  "SCAN_LINK": "https://polygonscan.com/address/0x05215b9b502013d96d941a9f6539b45ed186ab32",
+  "NETWORK": {
+    "NAME": "Polygon",
+    "SYMBOL": "Matic",
+    "ID": 137
+  },
+  "NFT_NAME": "Alien Gangstar",
+  "SYMBOL": "A G",
+  "MAX_SUPPLY": 2000,
+  "WEI_COST": 4000000000000000000,
+  "DISPLAY_COST": 1,
+  "GAS_LIMIT": 285000,
+  "MARKETPLACE": "Opeansea",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/aliengangstar",
+  "SHOW_BACKGROUND": true
+}
