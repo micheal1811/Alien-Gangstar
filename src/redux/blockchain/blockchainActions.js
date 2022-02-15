@@ -54,8 +54,8 @@ export const connect = () => {
     const { ethereum } = window;
     const metamaskIsInstalled = ethereum && ethereum.isMetaMask;
     if (metamaskIsInstalled) {
-      Web3EthContract.setProvider({provider: 'walletconnect'});
-      let web3 = new Web3({provider: 'walletconnect'});
+      Web3EthContract.setProvider(ethereum);
+      let web3 = new Web3(ethereum);
       try {
         const accounts = await ethereum.request({
           method: "eth_requestAccounts",
