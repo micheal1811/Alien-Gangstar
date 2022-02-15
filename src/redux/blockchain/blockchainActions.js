@@ -1,8 +1,6 @@
 // constants
 import Web3EthContract from "web3-eth-contract";
 import Web3 from "web3";
-import WalletConnect from "@walletconnect/client";
-import QRCodeModal from "@walletconnect/qrcode-modal";
 
 // log
 import { fetchData } from "../data/dataActions";
