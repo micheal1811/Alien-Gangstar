@@ -51,9 +51,10 @@ export const connect = () => {
     });
     const CONFIG = await configResponse.json();
     const { ethereum } = window;
-    const metamaskIsInstalled = ethereum && ethereum.isMetaMask;
-    if (metamaskIsInstalled) {
-      WalletConnect.setProvider(ethereum);
+    onst refreshData = async () => {
+      const { chainId, accounts } = connector;
+      await onConnect(chainId, accounts[0]);
+      setFetching(false);
       let ethers = new ethers(ethereum);
       try {
         const accounts = await ethereum.request({
