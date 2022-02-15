@@ -1,8 +1,7 @@
 // constants
-import Web3EthContract from "web3-eth-contract";
-import Web3 from "web3";
 import WalletConnect from "@walletconnect/client";
 import QRCodeModal from "@walletconnect/qrcode-modal";
+import { ethers } from "ethers";
 
 // log
 import { fetchData } from "../data/dataActions";
@@ -54,8 +53,8 @@ export const connect = () => {
     const { ethereum } = window;
     const metamaskIsInstalled = ethereum && ethereum.isMetaMask;
     if (metamaskIsInstalled) {
-      Web3EthContract.setProvider(ethereum);
-      let web3 = new Web3(ethereum);
+      WalletConnect.setProvider(ethereum);
+      let ethers = new ethers(ethereum);
       try {
         const accounts = await ethereum.request({
           method: "eth_requestAccounts",
@@ -64,7 +63,7 @@ export const connect = () => {
           method: "net_version",
         });
         if (networkId == CONFIG.NETWORK.ID) {
-          const SmartContractObj = new Web3EthContract(
+          const SmartContractObj = new ethers(
             abi,
             CONFIG.CONTRACT_ADDRESS
           );
@@ -72,7 +71,7 @@ export const connect = () => {
             connectSuccess({
               account: accounts[0],
               smartContract: SmartContractObj,
-              web3: web3,
+              ethers: ethers,
             })
           );
           // Add listeners start
