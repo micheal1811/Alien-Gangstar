@@ -102,21 +102,21 @@ function App() {
   const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
-    CONTRACT_ADDRESS: "",
+    CONTRACT_ADDRESS: "0x05215b9B502013d96D941A9F6539B45Ed186Ab32",
     SCAN_LINK: "",
     NETWORK: {
       NAME: "",
       SYMBOL: "",
       ID: 0,
     },
-    NFT_NAME: "",
-    SYMBOL: "",
-    MAX_SUPPLY: 1,
+    NFT_NAME: "Alien Gangstar",
+    SYMBOL: "A G",
+    MAX_SUPPLY: 10000,
     WEI_COST: 0,
     DISPLAY_COST: 0,
     GAS_LIMIT: 0,
-    MARKETPLACE: "",
-    MARKETPLACE_LINK: "",
+    MARKETPLACE: "opensea",
+    MARKETPLACE_LINK: "https://opensea.io/collection/aliengangstar",
     SHOW_BACKGROUND: false,
   });
 
