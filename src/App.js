@@ -4,11 +4,6 @@ import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
-import WalletConnectClient from "@walletconnect/client";
-            
-const client = await WalletConnectClient.init({
-  projectId: "a0313129c679c9a5b34b63305291fd04",
-});
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
