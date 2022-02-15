@@ -1,6 +1,9 @@
 // constants
 import Web3EthContract from "web3-eth-contract";
 import Web3 from "web3";
+import WalletConnect from "@walletconnect/client";
+import QRCodeModal from "@walletconnect/qrcode-modal";
+
 // log
 import { fetchData } from "../data/dataActions";
 
@@ -51,8 +54,8 @@ export const connect = () => {
     const { ethereum } = window;
     const metamaskIsInstalled = ethereum && ethereum.isMetaMask;
     if (metamaskIsInstalled) {
-      Web3EthContract.setProvider(ethereum);
-      let web3 = new Web3(ethereum);
+      Web3EthContract.setProvider({provider: 'walletconnect'});
+      let web3 = new Web3({provider: 'walletconnect'});
       try {
         const accounts = await ethereum.request({
           method: "eth_requestAccounts",
