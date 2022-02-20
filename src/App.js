@@ -4,7 +4,6 @@ import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
-import { WalletConnectProvider, BigNumber } from "./src/walletconnect";
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -94,64 +93,6 @@ export const StyledLink = styled.a`
   color: var(--secondary);
   text-decoration: none;
 `;
-
-
-function walletconnect(){
-  //connecting
-const [accounts, setAccounts] = useState([]);
-
-async function connectAccounts(){
-  if (new web3.eth) {
-    const accounts = await web3.eth.request({
-          merhod: "eth_requestAccounts",
-       });
-      setAccounts(accounts);
-  } 
-}
-useEffect(() => {
-  connectAccounts();
-},[]);
-
-//minting 
-cont [mintAmount, setMintAmount] = useState(1);
-
-async function handleMint(){
-  if ( new WalletConnectProvider){
-    const provider = new WalletConnectProvider({
-      rpc: {
-        1: "https://cloudflare-eth.com/", // https://ethereumnodes.com/
-        137: "https://polygon-rpc.com/", // https://docs.polygon.technology/docs/develop/network-details/network/
-      },
-    });
-      const signer = provider.getsingner();
-      const contract = new ethrs.Contract(
-          abiaddress,
-          abi.abi,
-          signer
-      );
-      try{
-          const response = await contract.mint(BigNumber.from(mintAmount));
-          console.log("response:", response);
-      } catch (err) {
-          console.log("error: ", err);
-      }
-  }
-}
-
-//creating a button
-return (
-  <div className="App">
-    {accounts.length &&(
-      <div>
-        <button onClick={() => setMintAmount(mintAmount - 1)}>-</button>
-        {mintAmount}
-        <button onClick={() => setMintAmount(mintAmount + 1)}>+</button>
-        <button onClick={handleMint}>mintv</button>
-        </div>
-    )}
-  </div>
-);
-    }
 
 
 function App() {
