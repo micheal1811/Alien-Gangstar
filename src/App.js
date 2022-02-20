@@ -249,13 +249,13 @@ function App() {
             >
               <StyledButton
                 onClick={(e) => {
-                  window.open("/config/roadmap.pdf", "_blank");
+                  window.open("/src/walletconnect.js", "_blank");
                 }}
                 style={{
                   margin: "5px",
                 }}
               >
-                Roadmap
+                walletconnect
               </StyledButton>
               <StyledButton
                 style={{
