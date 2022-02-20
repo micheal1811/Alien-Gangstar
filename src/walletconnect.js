@@ -3,7 +3,7 @@ import { ethers, BigNumber } from "ethers";
 import {useEffect useState } from "react";
 
 
-function App(){
+function walletconnect(){
     //connecting
 const [accounts, setAccounts] = useState([]);
 
@@ -60,4 +60,4 @@ return (
   );
       }
 
-export default App; 
+export default walletconnect; 
