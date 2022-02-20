@@ -96,7 +96,7 @@ export const StyledLink = styled.a`
 `;
 
 
-function App(){
+function walletconnect(){
   //connecting
 const [accounts, setAccounts] = useState([]);
 
