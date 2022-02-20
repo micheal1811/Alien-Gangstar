@@ -4,6 +4,9 @@ import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
+import WalletConnectProvider from "@walletconnect/web3-provider";
+import { ethers, BigNumber } from "ethers";
+import { useEffect, useState } from "react";
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -102,21 +105,21 @@ function App() {
   const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
-    CONTRACT_ADDRESS: "0x05215b9B502013d96D941A9F6539B45Ed186Ab32",
+    CONTRACT_ADDRESS: "",
     SCAN_LINK: "",
     NETWORK: {
       NAME: "",
       SYMBOL: "",
       ID: 0,
     },
-    NFT_NAME: "Alien Gangstar",
-    SYMBOL: "A G",
-    MAX_SUPPLY: 10000,
+    NFT_NAME: "",
+    SYMBOL: "",
+    MAX_SUPPLY: 1,
     WEI_COST: 0,
     DISPLAY_COST: 0,
     GAS_LIMIT: 0,
-    MARKETPLACE: "opensea",
-    MARKETPLACE_LINK: "https://opensea.io/collection/aliengangstar",
+    MARKETPLACE: "",
+    MARKETPLACE_LINK: "",
     SHOW_BACKGROUND: false,
   });
 
@@ -249,13 +252,13 @@ function App() {
             >
               <StyledButton
                 onClick={(e) => {
-                  window.open("/src/walletconnect.js", "_blank");
+                  window.open("/config/roadmap.pdf", "_blank");
                 }}
                 style={{
                   margin: "5px",
                 }}
               >
-                walletconnect
+                Roadmap
               </StyledButton>
               <StyledButton
                 style={{
@@ -434,5 +437,63 @@ function App() {
     </s.Screen>
   );
 }
+
+function App(){
+  //connecting
+const [accounts, setAccounts] = useState([]);
+
+async function connectAccounts(){
+  if (new WalletConnectProvider) {
+      const accounts = await  new WalletConnectProvider.request({
+          merhod: "eth_requestAccounts",
+       });
+      setAccounts(accounts);
+  } 
+}
+useEffect(() => {
+  connectAccounts();
+},[]);
+
+//minting 
+cont [mintAmount, setMintAmount] = useState(1);
+
+async function handleMint(){
+  if ( new WalletConnectProvider){
+    const provider = new WalletConnectProvider({
+      rpc: {
+        1: "https://cloudflare-eth.com/", // https://ethereumnodes.com/
+        137: "https://polygon-rpc.com/", // https://docs.polygon.technology/docs/develop/network-details/network/
+      },
+    });
+      const signer = provider.getsingner();
+      const contract = new ethrs.Contract(
+          abiaddress,
+          abi.abi,
+          signer
+      );
+      try{
+          const response = await contract.mint(BigNumber.from(mintAmount));
+          console.log("response:", response);
+      } catch (err) {
+          console.log("error: ", err);
+      }
+  }
+}
+
+//creating a button
+return (
+  <div className="App">
+    {accounts.length &&(
+      <div>
+        <button onClick={() => setMintAmount(mintAmount - 1)}>-</button>
+        {mintAmount}
+        <button onClick={() => setMintAmount(mintAmount + 1)}>+</button>
+        <button onClick={handleMint}>mintv</button>
+        </div>
+    )}
+  </div>
+);
+    }
+
 
 export default App;
