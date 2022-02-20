@@ -4,9 +4,7 @@ import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
-import WalletConnectProvider from "@walletconnect/web3-provider";
-import { ethers, BigNumber } from "ethers";
-import { useEffect, useState } from "react";
+import { WalletConnectProvider, BigNumber } from "./src/walletconnect"
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -103,8 +101,8 @@ function App(){
 const [accounts, setAccounts] = useState([]);
 
 async function connectAccounts(){
-  if (new WalletConnectProvider) {
-      const accounts = await  new WalletConnectProvider.request({
+  if (new web3.eth) {
+    const accounts = await web3.eth.request({
           merhod: "eth_requestAccounts",
        });
       setAccounts(accounts);
