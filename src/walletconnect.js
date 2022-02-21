@@ -146,10 +146,10 @@ return (
      <div className="walletconnect">
       {accounts.length &&(
         <div>
-          <styled.button onClick={() => setMintAmount(mintAmount - 1)}>-</styled.button>
+          <StyledRoundButton onClick={() => setMintAmount(mintAmount - 1)}>-</StyledRoundButton>
           {mintAmount}
-          <styled.button onClick={() => setMintAmount(mintAmount + 1)}>+</styled.button>
-          <styled.button onClick={handleMint}>mint</styled.button>
+          <StyledRoundButton onClick={() => setMintAmount(mintAmount + 1)}>+</StyledRoundButton>
+          <StyledButton onClick={handleMint}>mint</StyledButton>
           </div>
       )}
       </div>
