@@ -48,6 +48,12 @@ async function handleMint(){
 //creating a button
 return (
   <s.Screen>
+    <s.Container
+        flex={1}
+        ai={"center"}
+        style={{ padding: 24, backgroundColor: "var(--primary)" }}
+        image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
+      >
     <div className="walletconnect">
       {accounts.length &&(
         <div>
@@ -58,6 +64,7 @@ return (
           </div>
       )}
     </div>
+    </s.Container>
     </s.Screen>
   );
       }
