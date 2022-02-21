@@ -47,7 +47,8 @@ async function handleMint(){
 
 //creating a button
 return (
-    <div className="App">
+  <s.Screen>
+    <div className="walletconnect">
       {accounts.length &&(
         <div>
           <button onClick={() => setMintAmount(mintAmount - 1)}>-</button>
@@ -57,6 +58,7 @@ return (
           </div>
       )}
     </div>
+    </s.Screen>
   );
       }
 
