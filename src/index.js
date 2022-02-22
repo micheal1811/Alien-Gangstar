@@ -11,10 +11,13 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-<Provider walletconnect={walletconnect}>
-    <walletconnect />
-  </Provider>,
   document.getElementById("root")
+);
+ReactDOM.render(
+  <Provider walletconnect={walletconnect}>
+  <walletconnect />
+</Provider>,
+  document.getElementById("connectwallet")
 );
 
 // If you want to start measuring performance in your app, pass a function
