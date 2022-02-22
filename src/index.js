@@ -8,6 +8,7 @@ import "./styles/reset.css";
 
 ReactDOM.render(
   <Provider store={store}>
+  <walletconnect />
     <App />
   </Provider>,
   document.getElementById("root")
