@@ -8,11 +8,11 @@ import { Provider } from "react-redux";
 import "./styles/reset.css";
 
 ReactDOM.render(
-   <Provider store={store}>
-    <walletconnect />
-  </Provider>,
   <Provider store={store}>
     <App />
+  </Provider>,
+<Provider store={store}>
+    <walletconnect />
   </Provider>,
   document.getElementById("root")
 );
