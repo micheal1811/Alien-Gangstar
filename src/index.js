@@ -11,7 +11,7 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-<Provider store={store}>
+<Provider walletconnect={walletconnect}>
     <walletconnect />
   </Provider>,
   document.getElementById("root")
