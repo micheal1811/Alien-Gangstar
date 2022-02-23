@@ -180,6 +180,9 @@ return (
                      <StyledButton onClick={handleMint}>mint</StyledButton>
                     </div>
                   )}
+                  style={{
+                  margin: "11px",
+                }}
                        </div>
                    
                     {blockchain.errorMsg !== "" ? (
