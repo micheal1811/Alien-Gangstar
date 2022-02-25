@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 
 var StyledButton = documment.querySelector('StyledButton');
-var walletconnect = document.getElementById('new WalletConnectProvider');
+var App = document.getElementById('new WalletConnectProvider');
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -98,7 +98,7 @@ export const StyledLink = styled.a`
   text-decoration: none;
 `;
 
-function walletconnect(){
+function App(){
     //connecting
 const [accounts, setAccounts] = useState([]);
 
@@ -386,4 +386,4 @@ return (
 }
 
 
-export default walletconnect;
+export default App;
